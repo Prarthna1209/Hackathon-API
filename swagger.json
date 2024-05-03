@@ -1,0 +1,33 @@
+{
+    "definition": {
+        "openapi": "3.0.0",
+        "info": {
+            "title": "DSI",
+            "description": "Service to provide a REST API interface for utilization of the DSI API",
+            "version": "1.0"
+        },
+        "components": {
+            "securitySchemes": {
+                "default": {
+                    "type": "oauth2",
+                    "flows": {
+                        "implicit": {
+                            "authorizationUrl": "",
+                            "scopes": {
+                                "DSI-FID-W": "FID (all DSI APIs)",
+                                "DSI-FID-R": "Can use any non-mutating DSI API",
+                                "DSI-FID-P": "FID for DSI publishing APIs",
+                                "SOAP-SCOPE": "SOAP-BASE + mutating APIS associated with Flagged RFDS",
+                                "SOAP-BASE": "Can use any non-mutating API",
+                                "MANA-DSI-SOAP-ATT": "ATT customer specific role",
+                                "MANA-DSI-SOAP-TMO": "TMO customer specific role"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "servers": []
+    },
+    "apis": ["./src/routes/*.js"]
+}
